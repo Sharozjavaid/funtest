@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-heading: var(--font-fredoka);
+  --font-body: var(--font-nunito);
+  --color-cream: #FFF8E7;
+  --color-honey: #F2A922;
+  --color-honey-dark: #D4920E;
+  --color-bark: #5C3D2E;
+  --color-bark-light: #7A5A4A;
+  --color-sand: #F5E6C8;
+  --color-sand-dark: #E8D5B0;
+  --color-paw-pink: #E8A0BF;
+  --color-paw-pink-light: #F0C0D5;
+  --color-leaf: #7CB342;
+  --color-leaf-dark: #6A9A38;
+  --color-stone: #F7F5F0;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --animate-fade-up: fade-up 0.8s ease-out both;
+  --animate-fade-up-delay: fade-up 0.8s ease-out 0.2s both;
+  --animate-scroll-indicator: scroll-indicator 2s ease-in-out infinite;
+  --animate-trot: trot 0.6s ease-in-out infinite;
+  --animate-trot-across: trot-across 12s linear infinite;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFF8E7;
+  color: #5C3D2E;
+  font-family: var(--font-body), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-indicator {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  40%, 60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(8px);
+  }
+}
+
+/* Mascot trot - subtle bobbing motion */
+@keyframes trot {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(-1deg);
+  }
+}
+
+/* Mascot walking across the screen */
+@keyframes trot-across {
+  0% {
+    transform: translateX(-120px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 120px));
+  }
+}
+
+/* Paw print trail behind mascot */
+@keyframes paw-fade {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
 }

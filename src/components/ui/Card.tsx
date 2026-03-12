@@ -1,0 +1,14 @@
+interface CardProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function Card({ children, className = "" }: CardProps) {
+  return (
+    <div
+      className={`bg-sand rounded-2xl shadow-sm p-5 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
