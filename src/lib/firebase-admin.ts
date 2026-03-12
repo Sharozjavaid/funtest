@@ -6,7 +6,7 @@ let app: App;
 let db: Firestore;
 let storage: Storage;
 
-const projectId = process.env.FIREBASE_PROJECT_ID;
+const projectId = process.env.FIREBASE_PROJECT_ID?.trim();
 
 function getApp(): App {
   if (!app) {
